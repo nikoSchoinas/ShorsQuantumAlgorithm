@@ -476,7 +476,7 @@ class Shor(QuantumAlgorithm):
         logger.info('In decimal, x_final value for this result is: %s.', x_value)
 
         if x_value <= 0:
-            self._ret['results'][output_desired] =                 'x_value is <= 0, there are no continued fractions.'
+            self._ret['results'][output_desired] = 'x_value is <= 0, there are no continued fractions.'
             return False
 
         logger.debug('Running continued fractions for this case.')
@@ -525,7 +525,7 @@ class Shor(QuantumAlgorithm):
 
             if denominator % 2 == 1:
                 if i >= self._N:
-                    self._ret['results'][output_desired] =                         'unable to find factors after too many attempts.'
+                    self._ret['results'][output_desired] = 'unable to find factors after too many attempts.'
                     return False
                 logger.debug('Odd denominator, will try next iteration of continued fractions.')
                 continue
@@ -539,7 +539,7 @@ class Shor(QuantumAlgorithm):
 
             # Check if the value is too big or not
             if math.isinf(exponential) or exponential > 1000000000:
-                self._ret['results'][output_desired] =                     'denominator of continued fraction is too big.'
+                self._ret['results'][output_desired] = 'denominator of continued fraction is too big.'
                 return False
 
             # If the value is not to big (infinity),
@@ -555,10 +555,10 @@ class Shor(QuantumAlgorithm):
                 # Check if the number has already been found,
                 # use i-1 because i was already incremented
                 if t[i - 1] == 0:
-                    self._ret['results'][output_desired] =                         'the continued fractions found exactly x_final/(2^(2n)).'
+                    self._ret['results'][output_desired] = 'the continued fractions found exactly x_final/(2^(2n)).'
                     return False
                 if i >= self._N:
-                    self._ret['results'][output_desired] =                         'unable to find factors after too many attempts.'
+                    self._ret['results'][output_desired] = 'unable to find factors after too many attempts.'
                     return False
             else:
                 logger.debug('The factors of %s are %s and %s.', self._N, one_factor, other_factor)
